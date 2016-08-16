@@ -18,11 +18,11 @@ int main(int argc, char **argv)
 
 	unsigned int indices[] = { 0, 1, 2 };
 
-	Mesh mesh(verticies, sizeof(verticies) / sizeof(verticies[0]), indices, sizeof(indices) / sizeof(indices[0]));
-	Mesh mesh2("./resource/models/bench.obj");
-	Texture texture("./resource/textures/default.jpg");
-	Texture texture2("./resource/textures/Wood1.jpg");
-	Camera camera(glm::vec3(-3.0, 0.0, 1.0), 70.0f, (float)display.getWidth() / (float)display.getHeight(), 0.01f, 1024.0f);
+//	Mesh mesh(verticies, sizeof(verticies) / sizeof(verticies[0]), indices, sizeof(indices) / sizeof(indices[0]));
+	Mesh mesh2("./resource/models/monkey3.obj");
+//	Texture texture("./resource/textures/default.jpg");
+	Texture texture("./resource/textures/Wood1.jpg");
+	Camera camera(glm::vec3(-5.0, 0.0, 0.0), 70.0f, (float)display.getWidth() / (float)display.getHeight(), 0.01f, 1024.0f);
 	Transform transform;
 
 	float counter = 0.0f;
@@ -35,15 +35,15 @@ int main(int argc, char **argv)
 
 		transform.getPos().x = sinf(counter);
 		transform.getRot().z = counter;
+		transform.getRot().x = 90.0;
 
 		shader.Bind();
 		texture.Bind(0);
 		shader.Update(transform, camera);
-		mesh.Draw();
-		texture2.Bind(0);
+//		mesh.Draw();
 		mesh2.Draw();
 		display.Update();
-		counter += 0.0001f;
+		counter += 0.001f;
 	}
 	return 0;
 }
