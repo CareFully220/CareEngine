@@ -11,7 +11,7 @@ public:
 	{
 		this->pos = pos;
 		this->texCoord = texCoord;
-		this->normal = normal;
+		this->normal = normal; //test
 	}
 	inline glm::vec3* getPos() { return &pos; }
 	inline glm::vec2* getTexCoord() { return &texCoord; }
