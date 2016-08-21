@@ -345,7 +345,6 @@ publish, and distribute this file as you see fit.
 // and only if iPhone convert-to-rgb processing is on).
 //
 
-
 #ifndef STBI_NO_STDIO
 #include <stdio.h>
 #endif // STBI_NO_STDIO
@@ -6710,3 +6709,4 @@ STBIDEF int stbi_info_from_callbacks(stbi_io_callbacks const *c, void *user, int
       0.50  (2006-11-19)
               first released version
 */
+

@@ -5,29 +5,35 @@
 #include "Transform.h"
 #include "Camera.h"
 
-class Shader
-{
-public:
-	Shader(const std::string& fileName);
+namespace CareEngine {
 
-	void Bind();
-	void Update(const Transform& transform, const Camera& camera);
-
-	virtual ~Shader();
-private:
-	static const unsigned int NUM_SHADERS = 2;
-	Shader(const Shader& other);
-	void operator=(const Shader& other);
-
-	enum
+	class Shader
 	{
-		TRANSFORM_U, // U - uniforms
+	public:
+		Shader(const std::string& fileName);
 
-		NUM_UNIFORMS
+		void Bind();
+		void Update(const Transform& transform, const Camera& camera);
+		GLuint getUniformLocation(const std::string& uniformName);
+
+
+		virtual ~Shader();
+	private:
+		static const unsigned int NUM_SHADERS = 2;
+
+		Shader(const Shader& other);
+		void operator=(const Shader& other);
+
+		enum
+		{
+			TRANSFORM_U, // U - uniforms
+
+			NUM_UNIFORMS
+		};
+
+		GLuint m_program;
+		GLuint m_shaders[NUM_SHADERS];
+		GLuint m_uniforms[NUM_UNIFORMS];
 	};
 
-	GLuint m_program;
-	GLuint m_shaders[NUM_SHADERS];
-	GLuint m_uniforms[NUM_UNIFORMS];
-};
-
+}

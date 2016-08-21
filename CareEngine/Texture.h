@@ -3,18 +3,21 @@
 #include <string>
 #include <GL/glew.h>
 
-class Texture
-{
-public:
-	Texture(const std::string& fileName);
+namespace CareEngine {
 
-	void Bind(unsigned int unit);
+	class Texture
+	{
+	public:
+		Texture(const std::string& fileName);
 
-	virtual ~Texture();
-private:
-	Texture(const Texture& other);
-	void operator=(const Texture& other);
+		void Bind(unsigned int unit);
 
-	GLuint m_texture;
-};
+		virtual ~Texture();
+	private:
+		Texture(const Texture& other);
+		void operator=(const Texture& other);
 
+		GLuint m_texture;
+	};
+
+}
